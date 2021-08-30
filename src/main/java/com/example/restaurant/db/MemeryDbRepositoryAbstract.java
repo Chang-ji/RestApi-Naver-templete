@@ -11,8 +11,8 @@ abstract public class MemeryDbRepositoryAbstract<T extends MemoryDbEntity> imple
 
     @Override
     public Optional<T> findById(int index) {
-        db.stream().filter(it -> it.getIndex() == index).findFirst();
-        return Optional.empty();
+        var findFirstValue = db.stream().filter(it -> it.getIndex() == index).findFirst();
+        return findFirstValue;
     }
 
     @Override
@@ -46,7 +46,7 @@ abstract public class MemeryDbRepositoryAbstract<T extends MemoryDbEntity> imple
     }
 
     @Override
-    public List<T> listAll() {
+    public List<T> findAll() {
         return db;
     }
 }
